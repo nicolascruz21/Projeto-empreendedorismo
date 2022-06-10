@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador</title>
+    <link rel="stylesheet" href="estilo.css">
+    <style>
+        body{
+    background-color: rgb(125, 90, 158);
+    font: normal 15pt Arial;
+}
+
+section {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    width: 540px;
+    margin: auto;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.404);
+}
+
+header {
+    color: white;
+    text-align: center;
+
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Verificador de Disponibilidade</h1>
+    </header>
+    <section>
+        <div >
+         <p>Quantidade desejada :
+            <input type="number" name="txtano" id="txtano" min="0">
+         </p>
+         <p>Produto:
+
+            <input type="radio" name="radpro" id="kit" checked>
+            <label for="kit">Kit de Frutas</label>
+            <input type="radio" name="radpro" id="abacaxi">
+            <label for="abacaxi">Abacaxi</label>
+            <input type="radio" name="radpro" id="banana">
+            <label for="banana">Banana</label> 
+            <input type="radio" name="radpro" id="maca">
+            <label for="maca">Maça</label>         
+         </p>
+         <p>
+            <input type="button" value="Verificar" onclick="verificar()">
+         </p>
+        </div>
+        <div id="res">
+            Preencha os dados acima para verificar!
+
+        </div>
+
+    </section>
+    <script>
+        function verificar () {
+    var estoque = 20
+    var qtd = document.getElementById('txtano')
+    var res = document.getElementById('res')
+    if (qtd.value.length == 0 || qtd.value > estoque) {
+
+        res.style.textAlign = 'center'
+        res.innerHTML = 'O seu produto ' + genero + ', e sua Quantidade desejada: ' + qtd.value + '. Está Indisponivel!'
+    
+    }
+    else {
+        var fpro = document.getElementsByName('radpro')
+        var genero = ''
+        if (fpro[0].checked){
+            genero = 'Kit'
+            res.style.textAlign = 'center'
+            res.innerHTML = 'O seu produto ' + genero + ', e sua Quantidade desejada: ' + qtd.value + '. Está Disponivel!'
+        }if (fpro[1].checked){
+            genero = 'Abacaxi'
+            res.style.textAlign = 'center'
+            res.innerHTML = 'O seu produto ' + genero + ', e sua Quantidade desejada: ' + qtd.value + '. Está Disponivel!'
+        }if (fpro[2].checked ){
+            genero = 'Banana'
+            res.style.textAlign = 'center'
+            res.innerHTML = 'O seu produto ' + genero + ', e sua Quantidade desejada: ' + qtd.value + '. Está Disponivel!'
+            if (qtd.value > 10){
+                res.style.textAlign = 'center'
+       res.innerHTML = 'O seu produto ' + genero + ', e sua Quantidade desejada: ' + qtd.value + '. Está Indisponivel!'   
+            }
+        }if (fpro[3].checked ){
+            genero = 'Maça'
+            res.style.textAlign = 'center'
+            res.innerHTML = 'O produto: ' + genero + ', Está Esgotado!'
+               
+        }
+            
+         
+        }
+       
+        }   
+    
+      
+
+    </script>
+</body>
+</html>
