@@ -1,2 +1,2 @@
-# Projeto-empreendedorismo
-meu site
+# Projeto-empreendedorismo-1°Semestre-ADS
+Primeiro Site
